@@ -7,9 +7,13 @@
         "build": "tsc",
         "doc": "typedoc --plugin typedoc-plugin-nojekyll,typedoc-plugin-external-module-name --out ./docs ./src",
         "app": "tsc-watch --outDir ./dist --onSuccess \"node ./dist\" --onFailure \"echo compilation failed\"",
-        "test": "npm run build",
-        "precommit": "npm run build",
-        "prepush": "npm run doc && git add docs && git commit -m 'doc generation :dog:' --no-verify && git push origin $(git rev-parse --abbrev-ref HEAD) --no-verify && exit 1 ; exit 0 "
+        "test": "npm run build"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run build",
+            "commit-msg": "npm run doc && git add docs && git commit -m 'doc generation :dog:' --no-verify && git push origin $(git rev-parse --abbrev-ref HEAD) --no-verify && exit 1 ; exit 0 "
+        }
     },
     "author": "",
     "license": "ISC",
