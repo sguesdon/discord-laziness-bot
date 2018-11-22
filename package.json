@@ -27,8 +27,7 @@
         "typescript": "^2.8.3",
         "typedoc-plugin-folder-modules": "^0.1.8"
     },
-    "dependencies": {
-    },
+    "dependencies": {},
     "_moduleAliases": {
         "lib": "dist/lib"
     }
