@@ -12,7 +12,7 @@
     "husky": {
         "hooks": {
             "pre-commit": "npm run build",
-            "commit-msg": "npm run doc && git add docs && git commit -m 'doc generation :dog:' --no-verify && git push origin $(git rev-parse --abbrev-ref HEAD) --no-verify && exit 1 ; exit 0 "
+            "pre-push": "npm run doc && git add docs && git commit -m 'doc generation :dog:' --no-verify && git push origin $(git rev-parse --abbrev-ref HEAD) --no-verify && exit 1 ; exit 0 "
         }
     },
     "author": "",
