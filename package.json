@@ -1,0 +1,35 @@
+{
+    "name": "discord-laziness-bot",
+    "version": "1.0.0",
+    "description": "",
+    "main": "./dist/index.js",
+    "scripts": {
+        "build": "tsc",
+        "doc": "typedoc --plugin typedoc-plugin-nojekyll,typedoc-plugin-external-module-name --out ./docs ./src",
+        "app": "tsc-watch --outDir ./dist --onSuccess \"node ./dist\" --onFailure \"echo compilation failed\"",
+        "test": "npm run build",
+        "precommit": "npm run build",
+        "prepush": "npm run doc && git add docs && git commit -m 'doc generation :dog:' --no-verify && git push origin $(git rev-parse --abbrev-ref HEAD) --no-verify && exit 1 ; exit 0 "
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^10.0.0",
+        "discord.js": "^11.4.2",
+        "husky": "^1.0.0-rc.7",
+        "injection-js": "^2.2.1",
+        "module-alias": "^2.1.0",
+        "reflect-metadata": "^0.1.12",
+        "tsc-watch": "^1.0.21",
+        "typedoc": "^0.11.1",
+        "typedoc-plugin-external-module-name": "^1.1.1",
+        "typedoc-plugin-nojekyll": "^1.0.1",
+        "typescript": "^2.8.3"
+    },
+    "dependencies": {
+        "typedoc-plugin-folder-modules": "^0.1.8"
+    },
+    "_moduleAliases": {
+        "lib": "dist/lib"
+    }
+}
